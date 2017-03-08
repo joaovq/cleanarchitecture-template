@@ -23,6 +23,9 @@ import com.zerok.todo.presentation.internal.di.components.DaggerApplicationCompo
 import com.zerok.todo.presentation.internal.di.modules.ApplicationModule;
 import com.squareup.leakcanary.LeakCanary;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Android Main Application
  */
@@ -34,12 +37,17 @@ public class AndroidApplication extends Application {
     super.onCreate();
     this.initializeInjector();
     this.initializeLeakDetection();
+    this.initRealmConfiguration();
   }
 
   private void initializeInjector() {
     this.applicationComponent = DaggerApplicationComponent.builder()
         .applicationModule(new ApplicationModule(this))
         .build();
+  }
+
+  private void initRealmConfiguration() {
+    Realm.init(this);
   }
 
   public ApplicationComponent getApplicationComponent() {

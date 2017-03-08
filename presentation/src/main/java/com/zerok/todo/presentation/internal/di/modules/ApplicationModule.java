@@ -29,6 +29,8 @@ import com.zerok.todo.presentation.UIThread;
 
 import dagger.Module;
 import dagger.Provides;
+import io.realm.Realm;
+
 import javax.inject.Singleton;
 
 /**
@@ -63,5 +65,9 @@ public class ApplicationModule {
 
   @Provides @Singleton UserRepository provideUserRepository(UserDataRepository userDataRepository) {
     return userDataRepository;
+  }
+
+  @Provides @Singleton Realm provideRealm(){
+      return Realm.getDefaultInstance();
   }
 }
