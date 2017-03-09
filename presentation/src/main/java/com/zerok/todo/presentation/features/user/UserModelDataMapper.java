@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zerok.todo.presentation.mapper;
+package com.zerok.todo.presentation.features.user;
 
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.User;
 import com.zerok.todo.presentation.internal.di.PerActivity;
-import com.zerok.todo.presentation.model.UserModel;
 
 import java.util.ArrayList;
 import java.util.Collection;

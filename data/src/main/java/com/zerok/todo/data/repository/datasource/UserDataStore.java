@@ -16,6 +16,8 @@
 package com.zerok.todo.data.repository.datasource;
 
 import com.zerok.todo.data.entity.UserEntity;
+import com.zerok.todo.domain.features.user.User;
+
 import io.reactivex.Observable;
 import java.util.List;
 
@@ -34,4 +36,11 @@ public interface UserDataStore {
    * @param userId The id to retrieve user data.
    */
   Observable<UserEntity> userEntityDetails(final int userId);
+
+    /**
+     * Add a new user into the database
+     *
+     * @param user Domain model with user's data
+     */
+  Observable<Void> addUserEntity(User user);
 }

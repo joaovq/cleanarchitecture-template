@@ -17,6 +17,8 @@ package com.zerok.todo.domain.interactor;
 
 import com.fernandocejas.template.todo.domain.executor.PostExecutionThread;
 import com.fernandocejas.template.todo.domain.executor.ThreadExecutor;
+import com.zerok.todo.domain.Params;
+import com.zerok.todo.domain.features.user.GetUserDetailsUC;
 import com.zerok.todo.domain.repository.UserRepository;
 import com.fernandocejas.arrow.optional.Optional;
 import io.reactivex.Observable;
@@ -36,7 +38,7 @@ public class GetUserDetailsTest {
 
   private static final int USER_ID = 123;
 
-  private GetUserDetails getUserDetails;
+  private GetUserDetailsUC getUserDetails;
 
   @Mock private UserRepository mockUserRepository;
   @Mock private ThreadExecutor mockThreadExecutor;
@@ -44,14 +46,14 @@ public class GetUserDetailsTest {
 
   @Before
   public void setUp() {
-    getUserDetails = new GetUserDetails(mockUserRepository, mockThreadExecutor,
+    getUserDetails = new GetUserDetailsUC(mockUserRepository, mockThreadExecutor,
         mockPostExecutionThread);
   }
 
   @Test
   public void testGetUserDetailsUseCaseObservableHappyCase() {
     final Params params = Params.create();
-    params.putInt(GetUserDetails.PARAM_USER_ID_KEY, USER_ID);
+    params.putInt(GetUserDetailsUC.PARAM_USER_ID_KEY, USER_ID);
 
     getUserDetails.buildUseCaseObservable(Optional.of(params));
 
@@ -75,7 +77,7 @@ public class GetUserDetailsTest {
   public void testShouldUseDefaultUserIdValueWhenNoUserIdParameter() {
     getUserDetails.buildUseCaseObservable(Optional.of(Params.create()));
 
-    verify(mockUserRepository).user(GetUserDetails.PARAM_USER_ID_DEFAULT_VALUE);
+    verify(mockUserRepository).user(GetUserDetailsUC.PARAM_USER_ID_DEFAULT_VALUE);
     verifyNoMoreInteractions(mockUserRepository);
     verifyZeroInteractions(mockPostExecutionThread);
     verifyZeroInteractions(mockThreadExecutor);

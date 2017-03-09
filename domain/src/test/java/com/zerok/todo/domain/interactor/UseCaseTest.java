@@ -18,6 +18,8 @@ package com.zerok.todo.domain.interactor;
 import com.fernandocejas.template.todo.domain.executor.PostExecutionThread;
 import com.fernandocejas.template.todo.domain.executor.ThreadExecutor;
 import com.fernandocejas.arrow.optional.Optional;
+import com.zerok.todo.domain.Params;
+
 import io.reactivex.Observable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.TestScheduler;

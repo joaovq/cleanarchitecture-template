@@ -16,10 +16,10 @@
 package com.zerok.todo.test.presenter;
 
 import android.content.Context;
-import com.zerok.todo.domain.interactor.GetUserDetails;
-import com.zerok.todo.presentation.mapper.UserModelDataMapper;
-import com.zerok.todo.presentation.presenter.UserDetailsPresenter;
-import com.zerok.todo.presentation.view.UserDetailsView;
+import com.zerok.todo.domain.features.user.GetUserDetailsUC;
+import com.zerok.todo.presentation.features.user.UserModelDataMapper;
+import com.zerok.todo.presentation.features.user.UserDetailsPresenter;
+import com.zerok.todo.presentation.features.user.UserDetailsView;
 import io.reactivex.observers.DisposableObserver;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.zerok.todo.domain.interactor.Params;
+import com.zerok.todo.domain.Params;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
@@ -41,7 +41,7 @@ public class UserDetailsPresenterTest {
 
   @Mock private Context mockContext;
   @Mock private UserDetailsView mockUserDetailsView;
-  @Mock private GetUserDetails mockGetUserDetails;
+  @Mock private GetUserDetailsUC mockGetUserDetails;
   @Mock private UserModelDataMapper mockUserModelDataMapper;
 
   @Before

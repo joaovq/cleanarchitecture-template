@@ -13,7 +13,7 @@ import com.fernandocejas.template.todo.presentation.R;
 import com.zerok.todo.presentation.internal.di.HasComponent;
 import com.zerok.todo.presentation.internal.di.components.DaggerUserComponent;
 import com.zerok.todo.presentation.internal.di.components.UserComponent;
-import com.zerok.todo.presentation.model.UserModel;
+import com.zerok.todo.presentation.features.user.UserModel;
 import com.zerok.todo.presentation.view.fragment.UserListFragment;
 
 /**

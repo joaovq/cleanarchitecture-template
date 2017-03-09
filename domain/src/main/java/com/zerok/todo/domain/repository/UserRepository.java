@@ -15,7 +15,7 @@
  */
 package com.zerok.todo.domain.repository;
 
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.User;
 
 import java.util.List;
 
@@ -36,4 +36,11 @@ public interface UserRepository {
    * @param userId The user id used to retrieve user data.
    */
   Observable<User> user(final int userId);
+
+  /**
+   * Get an {@link Observable} which will save a new {@link User}.
+   *
+   * @param user The user which will be saved
+   */
+  Observable<Void> add(User user);
 }

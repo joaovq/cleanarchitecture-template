@@ -15,33 +15,74 @@
  */
 package com.zerok.todo.data.repository.datasource;
 
-import com.zerok.todo.data.cache.UserCache;
 import com.zerok.todo.data.entity.UserEntity;
+import com.zerok.todo.data.entity.mapper.UserEntityDataMapper;
+import com.zerok.todo.domain.features.user.User;
+
 import io.reactivex.Observable;
+import io.realm.Realm;
+
+import java.util.Arrays;
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * {@link UserDataStore} implementation based on file system data store.
  */
-class DiskUserDataStore implements UserDataStore {
+public class DiskUserDataStore implements UserDataStore {
 
-  private final UserCache userCache;
+  private Realm realmInstance;
+  private UserEntityDataMapper userEntityDataMapper;
 
   /**
    * Construct a {@link UserDataStore} based file system data store.
    *
-   * @param userCache A {@link UserCache} to cache data retrieved from the api.
+   * @param realm A {@link Realm} instance to add data into the cache
+   * @param userEntityDataMapper A {@link UserEntityDataMapper} mapper to transform Domains's data
+   *                             into Data's data
    */
-  DiskUserDataStore(UserCache userCache) {
-    this.userCache = userCache;
+  @Inject
+  public DiskUserDataStore(Realm realm,
+                    UserEntityDataMapper userEntityDataMapper ) {
+    this.realmInstance = realm;
+    this.userEntityDataMapper = userEntityDataMapper;
   }
 
   @Override public Observable<List<UserEntity>> userEntityList() {
-    //TODO: implement simple cache for storing/retrieving collections of users.
-    throw new UnsupportedOperationException("Operation is not available!!!");
+    return Observable.create(emitter -> {
+      UserEntity userEntity = new UserEntity();
+      userEntity.setFullName("Test");
+      userEntity.setEmail("test@test.com");
+      userEntity.setDescription("User test");
+      userEntity.setCoverUrl("http://www.test.com.br/");
+      userEntity.setFollowers(10);
+
+      emitter.onNext(Arrays.asList(userEntity));
+      emitter.onComplete();
+    });
   }
 
   @Override public Observable<UserEntity> userEntityDetails(final int userId) {
-     return this.userCache.get(userId);
+    return Observable.create(emitter -> {
+      UserEntity userEntity = new UserEntity();
+      userEntity.setFullName("Test");
+      userEntity.setEmail("test@test.com");
+      userEntity.setDescription("User test");
+      userEntity.setCoverUrl("http://www.test.com.br/");
+      userEntity.setFollowers(10);
+
+      emitter.onNext(userEntity);
+      emitter.onComplete();
+    });
+  }
+
+  @Override
+  public Observable<Void> addUserEntity(User user) {
+    return Observable.create( emitter -> {
+      realmInstance.beginTransaction();
+      userEntityDataMapper.transform(user);
+      realmInstance.commitTransaction();
+    });
   }
 }

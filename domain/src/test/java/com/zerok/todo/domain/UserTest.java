@@ -15,6 +15,8 @@
  */
 package com.zerok.todo.domain;
 
+import com.zerok.todo.domain.features.user.User;
+
 import org.junit.Before;
 import org.junit.Test;
 

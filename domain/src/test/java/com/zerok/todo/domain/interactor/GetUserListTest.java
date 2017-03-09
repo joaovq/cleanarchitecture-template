@@ -17,6 +17,8 @@ package com.zerok.todo.domain.interactor;
 
 import com.fernandocejas.template.todo.domain.executor.PostExecutionThread;
 import com.fernandocejas.template.todo.domain.executor.ThreadExecutor;
+import com.zerok.todo.domain.Params;
+import com.zerok.todo.domain.features.user.GetUserListUC;
 import com.zerok.todo.domain.repository.UserRepository;
 import com.fernandocejas.arrow.optional.Optional;
 import org.junit.Before;
@@ -33,7 +35,7 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 @RunWith(MockitoJUnitRunner.class)
 public class GetUserListTest {
 
-  private GetUserList getUserList;
+  private GetUserListUC getUserList;
 
   @Mock private ThreadExecutor mockThreadExecutor;
   @Mock private PostExecutionThread mockPostExecutionThread;
@@ -41,7 +43,7 @@ public class GetUserListTest {
 
   @Before
   public void setUp() {
-    getUserList = new GetUserList(mockUserRepository, mockThreadExecutor,
+    getUserList = new GetUserListUC(mockUserRepository, mockThreadExecutor,
         mockPostExecutionThread);
   }
 

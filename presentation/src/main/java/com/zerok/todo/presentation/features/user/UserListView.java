@@ -2,9 +2,9 @@
  * Copyright (C) 2014 android10.org. All rights reserved.
  * @author Fernando Cejas (the android10 coder)
  */
-package com.zerok.todo.presentation.view;
+package com.zerok.todo.presentation.features.user;
 
-import com.zerok.todo.presentation.model.UserModel;
+import com.zerok.todo.presentation.view.LoadDataView;
 
 import java.util.Collection;
 

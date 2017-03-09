@@ -15,6 +15,8 @@
  */
 package com.zerok.todo.domain.interactor;
 
+import com.zerok.todo.domain.Params;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

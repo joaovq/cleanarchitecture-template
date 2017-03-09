@@ -6,7 +6,8 @@
   <string name="activity_title_user_list">Users List</string>
   <string name="activity_title_user_details">User Details</string>
 
-  <string name="btn_text_load_data">Load Sample Data</string>
+  <string name="btn_text_load_users">Load Users</string>
+  <string name="btn_text_new_user">New User</string>
   <string name="btn_text_retry">Retry</string>
 
   <string name="view_text_email">Email:</string>

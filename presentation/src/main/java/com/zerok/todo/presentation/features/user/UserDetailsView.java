@@ -2,15 +2,13 @@
  * Copyright (C) 2014 android10.org. All rights reserved.
  * @author Fernando Cejas (the android10 coder)
  */
-package com.zerok.todo.presentation.view;
-
-import com.zerok.todo.presentation.model.UserModel;
+package com.zerok.todo.presentation.features.user;
 
 /**
  * Interface representing a View in a model view presenter (MVP) pattern.
  * In this case is used as a view representing a user profile.
  */
-public interface UserDetailsView extends LoadDataView {
+public interface UserDetailsView extends com.zerok.todo.presentation.view.LoadDataView {
   /**
    * Render a user in the UI.
    *

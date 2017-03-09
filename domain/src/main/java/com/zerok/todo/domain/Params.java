@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zerok.todo.domain.interactor;
+package com.zerok.todo.domain;
+
+import com.zerok.todo.domain.interactor.UseCase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Class backed by a Map, used to pass parameters to {@link UseCase} instances.
@@ -36,7 +39,7 @@ public final class Params {
     parameters.put(key, value);
   }
 
-  int getInt(String key, int defaultValue) {
+  public int getInt(String key, int defaultValue) {
     final Object object = parameters.get(key);
     if (object == null) {
       return defaultValue;
@@ -46,5 +49,18 @@ public final class Params {
     } catch (ClassCastException e) {
       return defaultValue;
     }
+  }
+
+  public void putModel(String key,BaseModel model){
+      parameters.put(key,model);
+  }
+
+  public BaseModel getModel(String key){
+      final Object object = parameters.get(key);
+      try{
+        return (BaseModel) object;
+      } catch (ClassCastException e){
+        return new BaseModel();
+      }
   }
 }

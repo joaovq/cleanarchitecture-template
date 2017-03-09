@@ -17,9 +17,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.fernandocejas.template.todo.presentation.R;
 import com.zerok.todo.presentation.internal.di.components.UserComponent;
-import com.zerok.todo.presentation.model.UserModel;
-import com.zerok.todo.presentation.presenter.UserDetailsPresenter;
-import com.zerok.todo.presentation.view.UserDetailsView;
+import com.zerok.todo.presentation.features.user.UserModel;
+import com.zerok.todo.presentation.features.user.UserDetailsPresenter;
+import com.zerok.todo.presentation.features.user.UserDetailsView;
 import com.zerok.todo.presentation.view.component.AutoLoadImageView;
 import com.fernandocejas.arrow.checks.Preconditions;
 

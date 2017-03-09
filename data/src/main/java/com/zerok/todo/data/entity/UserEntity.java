@@ -17,15 +17,16 @@ package com.zerok.todo.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * User Entity used in the data layer.
  */
-public class UserEntity {
+public class UserEntity extends RealmObject {
 
   @SerializedName("id")
   private int userId;
 
-  @SerializedName("cover_url")
   private String coverUrl;
 
   @SerializedName("full_name")
@@ -56,11 +57,13 @@ public class UserEntity {
     return coverUrl;
   }
 
-  public String getFullname() {
+  public void setCoverUrl(String converUrl) { this.coverUrl = converUrl; }
+
+  public String getFullName() {
     return fullname;
   }
 
-  public void setFullname(String fullname) {
+  public void setFullName(String fullname) {
     this.fullname = fullname;
   }
 
@@ -68,8 +71,18 @@ public class UserEntity {
     return description;
   }
 
+  public void setDescription(String description){ this.description = description; }
+
+  public void setFollowers(int followers){
+    this.followers = followers;
+  }
+
   public int getFollowers() {
     return followers;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public String getEmail() {

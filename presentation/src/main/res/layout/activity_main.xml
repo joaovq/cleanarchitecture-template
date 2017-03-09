@@ -25,10 +25,17 @@
       />
 
   <Button
+      android:id="@+id/btn_NewUser"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/btn_text_new_user"
+      />
+
+  <Button
       android:id="@+id/btn_LoadData"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="@string/btn_text_load_data"
+      android:text="@string/btn_text_load_users"
       />
 
 </LinearLayout>

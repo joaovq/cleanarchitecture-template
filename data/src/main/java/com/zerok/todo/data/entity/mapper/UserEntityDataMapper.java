@@ -16,7 +16,7 @@
 package com.zerok.todo.data.entity.mapper;
 
 import com.zerok.todo.data.entity.UserEntity;
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -44,12 +44,31 @@ public class UserEntityDataMapper {
     if (userEntity != null) {
       user = new User(userEntity.getUserId());
       user.setCoverUrl(userEntity.getCoverUrl());
-      user.setFullName(userEntity.getFullname());
+      user.setFullName(userEntity.getFullName());
       user.setDescription(userEntity.getDescription());
       user.setFollowers(userEntity.getFollowers());
       user.setEmail(userEntity.getEmail());
     }
     return user;
+  }
+
+  /**
+   * Transform a {@link User} into an {@link UserEntity}.
+   *
+   * @param user Object to be transformed.
+   * @return {@link UserEntity} if valid {@link User} otherwise null.
+   */
+  public UserEntity transform(User user) {
+    UserEntity userEntity = null;
+    if (user != null) {
+      userEntity = new UserEntity();
+      userEntity.setCoverUrl(user.getCoverUrl());
+      userEntity.setFullName(userEntity.getFullName());
+      userEntity.setDescription(user.getDescription());
+      userEntity.setFollowers(user.getFollowers());
+      userEntity.setEmail(user.getEmail());
+    }
+    return userEntity;
   }
 
   /**

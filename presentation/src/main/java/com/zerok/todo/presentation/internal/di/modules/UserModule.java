@@ -17,8 +17,8 @@ package com.zerok.todo.presentation.internal.di.modules;
 
 import com.zerok.todo.domain.executor.PostExecutionThread;
 import com.zerok.todo.domain.executor.ThreadExecutor;
-import com.zerok.todo.domain.interactor.GetUserDetails;
-import com.zerok.todo.domain.interactor.GetUserList;
+import com.zerok.todo.domain.features.user.GetUserDetailsUC;
+import com.zerok.todo.domain.features.user.GetUserListUC;
 import com.zerok.todo.domain.interactor.UseCase;
 import com.zerok.todo.domain.repository.UserRepository;
 import com.zerok.todo.presentation.internal.di.PerActivity;
@@ -36,14 +36,14 @@ public class UserModule {
   public UserModule() {}
 
   @Provides @PerActivity
-  @Named(GetUserList.NAME) UseCase provideGetUserListUseCase(
-      GetUserList getUserList) {
+  @Named(GetUserListUC.NAME) UseCase provideGetUserListUseCase(
+      GetUserListUC getUserList) {
     return getUserList;
   }
 
-  @Provides @PerActivity @Named(GetUserDetails.NAME) UseCase provideGetUserDetailsUseCase(
+  @Provides @PerActivity @Named(GetUserDetailsUC.NAME) UseCase provideGetUserDetailsUseCase(
       UserRepository userRepository, ThreadExecutor threadExecutor,
       PostExecutionThread postExecutionThread) {
-    return new GetUserDetails(userRepository, threadExecutor, postExecutionThread);
+    return new GetUserDetailsUC(userRepository, threadExecutor, postExecutionThread);
   }
 }

@@ -16,8 +16,8 @@
 package com.zerok.todo.test.mapper;
 
 import com.fernandocejas.template.todo.domain.User;
-import com.zerok.todo.presentation.mapper.UserModelDataMapper;
-import com.zerok.todo.presentation.model.UserModel;
+import com.zerok.todo.presentation.features.user.UserModelDataMapper;
+import com.zerok.todo.presentation.features.user.UserModel;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

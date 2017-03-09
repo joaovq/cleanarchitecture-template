@@ -16,11 +16,11 @@
 package com.zerok.todo.test.presenter;
 
 import android.content.Context;
-import com.zerok.todo.domain.interactor.GetUserList;
-import com.zerok.todo.domain.interactor.Params;
-import com.zerok.todo.presentation.mapper.UserModelDataMapper;
-import com.zerok.todo.presentation.presenter.UserListPresenter;
-import com.zerok.todo.presentation.view.UserListView;
+import com.zerok.todo.domain.features.user.GetUserListUC;
+import com.zerok.todo.domain.Params;
+import com.zerok.todo.presentation.features.user.UserModelDataMapper;
+import com.zerok.todo.presentation.features.user.UserListPresenter;
+import com.zerok.todo.presentation.features.user.UserListView;
 import io.reactivex.observers.DisposableObserver;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class UserListPresenterTest {
 
   @Mock private Context mockContext;
   @Mock private UserListView mockUserListView;
-  @Mock private GetUserList mockGetUserList;
+  @Mock private GetUserListUC mockGetUserList;
   @Mock private UserModelDataMapper mockUserModelDataMapper;
 
   @Before

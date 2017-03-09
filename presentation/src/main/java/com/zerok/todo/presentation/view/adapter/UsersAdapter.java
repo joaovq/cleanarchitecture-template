@@ -13,7 +13,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.fernandocejas.template.todo.presentation.R;
-import com.zerok.todo.presentation.model.UserModel;
+import com.zerok.todo.presentation.features.user.UserModel;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;

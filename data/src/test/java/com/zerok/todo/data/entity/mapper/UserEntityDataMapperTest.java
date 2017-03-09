@@ -17,7 +17,7 @@ package com.zerok.todo.data.entity.mapper;
 
 import com.zerok.todo.data.ApplicationTestCase;
 import com.zerok.todo.data.entity.UserEntity;
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -70,7 +70,7 @@ public class UserEntityDataMapperTest extends ApplicationTestCase {
   private UserEntity createFakeUserEntity() {
     UserEntity userEntity = new UserEntity();
     userEntity.setUserId(FAKE_USER_ID);
-    userEntity.setFullname(FAKE_FULLNAME);
+    userEntity.setFullName(FAKE_FULLNAME);
 
     return userEntity;
   }

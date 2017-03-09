@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zerok.todo.domain.interactor;
+package com.zerok.todo.domain.features.user;
 
 import com.zerok.todo.domain.executor.PostExecutionThread;
 import com.zerok.todo.domain.executor.ThreadExecutor;
+import com.zerok.todo.domain.Params;
+import com.zerok.todo.domain.interactor.UseCase;
 import com.zerok.todo.domain.repository.UserRepository;
 import com.fernandocejas.arrow.annotations.VisibleForTesting;
 import com.fernandocejas.arrow.optional.Optional;
@@ -27,7 +29,7 @@ import javax.inject.Inject;
  * This class is an implementation of {@link UseCase} that represents a use case for
  * retrieving data related to an specific {@link User}.
  */
-public class GetUserDetails extends UseCase {
+public class GetUserDetailsUC extends UseCase {
 
   public static final String NAME = "userDetails";
   public static final String PARAM_USER_ID_KEY = "userId";
@@ -38,8 +40,8 @@ public class GetUserDetails extends UseCase {
   private final UserRepository userRepository;
 
   @Inject
-  public GetUserDetails(UserRepository userRepository, ThreadExecutor threadExecutor,
-      PostExecutionThread postExecutionThread) {
+  public GetUserDetailsUC(UserRepository userRepository, ThreadExecutor threadExecutor,
+                          PostExecutionThread postExecutionThread) {
     super(threadExecutor, postExecutionThread);
     this.userRepository = userRepository;
   }

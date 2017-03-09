@@ -13,22 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zerok.todo.presentation.presenter;
+package com.zerok.todo.presentation.features.user;
 
 import android.support.annotation.NonNull;
 
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.User;
 import com.zerok.todo.domain.exception.DefaultErrorBundle;
 import com.zerok.todo.domain.exception.ErrorBundle;
 import com.zerok.todo.domain.interactor.DefaultObserver;
-import com.zerok.todo.domain.interactor.GetUserDetails;
+import com.zerok.todo.domain.features.user.GetUserDetailsUC;
 import com.zerok.todo.domain.interactor.UseCase;
-import com.zerok.todo.domain.interactor.Params;
+import com.zerok.todo.domain.Params;
 import com.zerok.todo.presentation.exception.ErrorMessageFactory;
 import com.zerok.todo.presentation.internal.di.PerActivity;
-import com.zerok.todo.presentation.mapper.UserModelDataMapper;
-import com.zerok.todo.presentation.model.UserModel;
-import com.zerok.todo.presentation.view.UserDetailsView;
+import com.zerok.todo.presentation.presenter.Presenter;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -46,7 +44,7 @@ public class UserDetailsPresenter implements Presenter {
   private final UserModelDataMapper userModelDataMapper;
 
   @Inject
-  public UserDetailsPresenter(@Named(GetUserDetails.NAME) UseCase getUserDetailsUseCase,
+  public UserDetailsPresenter(@Named(GetUserDetailsUC.NAME) UseCase getUserDetailsUseCase,
       UserModelDataMapper userModelDataMapper) {
     this.getUserDetailsUseCase = getUserDetailsUseCase;
     this.userModelDataMapper = userModelDataMapper;
@@ -77,7 +75,7 @@ public class UserDetailsPresenter implements Presenter {
 
   private void getUserDetails(int userId) {
     final Params params = Params.create();
-    params.putInt(GetUserDetails.PARAM_USER_ID_KEY, userId);
+    params.putInt(GetUserDetailsUC.PARAM_USER_ID_KEY, userId);
     this.getUserDetailsUseCase.execute(new UserDetailsObserver(), params);
   }
 

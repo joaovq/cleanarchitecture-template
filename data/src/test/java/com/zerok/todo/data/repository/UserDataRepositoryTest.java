@@ -17,10 +17,8 @@ package com.zerok.todo.data.repository;
 
 import com.zerok.todo.data.entity.UserEntity;
 import com.zerok.todo.data.entity.mapper.UserEntityDataMapper;
-import com.zerok.todo.data.repository.UserDataRepository;
 import com.zerok.todo.data.repository.datasource.UserDataStore;
-import com.zerok.todo.data.repository.datasource.UserDataStoreFactory;
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.User;
 import io.reactivex.Observable;
 import java.util.ArrayList;
 import java.util.List;

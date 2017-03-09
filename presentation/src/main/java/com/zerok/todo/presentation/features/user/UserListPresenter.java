@@ -13,22 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zerok.todo.presentation.presenter;
+package com.zerok.todo.presentation.features.user;
 
 import android.support.annotation.NonNull;
 
-import com.zerok.todo.domain.User;
+import com.zerok.todo.domain.features.user.GetUserListUC;
+import com.zerok.todo.domain.features.user.User;
 import com.zerok.todo.domain.exception.DefaultErrorBundle;
 import com.zerok.todo.domain.exception.ErrorBundle;
 import com.zerok.todo.domain.interactor.DefaultObserver;
-import com.zerok.todo.domain.interactor.GetUserList;
 import com.zerok.todo.domain.interactor.UseCase;
-import com.zerok.todo.domain.interactor.Params;
+import com.zerok.todo.domain.Params;
 import com.zerok.todo.presentation.exception.ErrorMessageFactory;
 import com.zerok.todo.presentation.internal.di.PerActivity;
-import com.zerok.todo.presentation.mapper.UserModelDataMapper;
-import com.zerok.todo.presentation.model.UserModel;
-import com.zerok.todo.presentation.view.UserListView;
+import com.zerok.todo.presentation.presenter.Presenter;
 
 import java.util.Collection;
 import java.util.List;
@@ -48,7 +46,7 @@ public class UserListPresenter implements Presenter {
   private final UserModelDataMapper userModelDataMapper;
 
   @Inject
-  public UserListPresenter(@Named(GetUserList.NAME) UseCase getUserListUserCase,
+  public UserListPresenter(@Named(GetUserListUC.NAME) UseCase getUserListUserCase,
       UserModelDataMapper userModelDataMapper) {
     this.getUserListUseCase = getUserListUserCase;
     this.userModelDataMapper = userModelDataMapper;

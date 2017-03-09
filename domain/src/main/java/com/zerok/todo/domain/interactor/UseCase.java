@@ -17,6 +17,7 @@ package com.zerok.todo.domain.interactor;
 
 import com.fernandocejas.arrow.checks.Preconditions;
 import com.fernandocejas.arrow.optional.Optional;
+import com.zerok.todo.domain.Params;
 import com.zerok.todo.domain.executor.PostExecutionThread;
 import com.zerok.todo.domain.executor.ThreadExecutor;
 
@@ -40,7 +41,7 @@ public abstract class UseCase {
   private final PostExecutionThread postExecutionThread;
   private final CompositeDisposable disposables;
 
-  UseCase(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
+  public UseCase(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
     this.threadExecutor = threadExecutor;
     this.postExecutionThread = postExecutionThread;
     this.disposables = new CompositeDisposable();
